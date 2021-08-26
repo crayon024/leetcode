@@ -3,11 +3,14 @@ package com.crayon.linkedlist;
 import com.crayon.ListNode;
 
 /**
+ * 反转链表 题号 206 <br/>
+ * 题目链接 https://leetcode-cn.com/problems/reverse-linked-list/ <br/>
+ *
  * @author Crayon
- * https://leetcode-cn.com/problems/reverse-linked-list/
+ *
  */
 public class ReverseList {
-    public ListNode reverseList(ListNode head) {
+    public static ListNode reverseList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
@@ -24,20 +27,29 @@ public class ReverseList {
         return pre;
     }
 
-    public static class ListNode {
-        int val;
-        ListNode next;
+    /**
+     * 双指针, 头插法（这个说法更好理解写）
+     */
+    public static ListNode reverseList2(ListNode head) {
+        if (head == null) return null;
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
 
-        public ListNode() {
-        }
+        ListNode pre = dummy, cur = head, remove = null;
+        while (cur.next != null) {
+            remove = cur.next;
+            cur.next = remove.next;
 
-        public ListNode(int val) {
-            this.val = val;
+            remove.next = pre.next;
+            pre.next = remove;
         }
+        return dummy.next;
+    }
 
-        public ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
+    public static void main(String[] args) {
+        ListNode listNodeTrain = ListNodeUtil.createListNodeTrain();
+        ListNode listNode = reverseList(listNodeTrain);
+        System.out.println("// reverse ");
+        System.out.println(listNode.toString());
     }
 }
