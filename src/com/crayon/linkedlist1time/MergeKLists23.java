@@ -64,4 +64,9 @@ public class MergeKLists23 {
 
         return result.next;
     }
+    
+    public static void main(String[] args) {
+
+        int i = Integer.parseInt("6000000000");
+    }
 }
