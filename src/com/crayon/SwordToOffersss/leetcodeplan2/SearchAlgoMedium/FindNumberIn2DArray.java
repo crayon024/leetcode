@@ -10,17 +10,19 @@ package com.crayon.SwordToOffersss.leetcodeplan2.SearchAlgoMedium;
  */
 public class FindNumberIn2DArray {
     public boolean findNumberIn2DArray(int[][] matrix, int target) {
-        if (matrix.length == 0) return false;
-        if (matrix.length == 1) return matrix[0][0] == target;
-        int i = 0, j = matrix[0].length - 1;
+        // [[1,2,3]] 的情况
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return false;
 
-        while (matrix[i][j] < target) {
-            if (matrix[i][j] == target) return true;
-            i++;
+        int i = 0, j = matrix[0].length - 1;
+        while (true) {
+            if (i > matrix.length - 1 || j < 0) return false;
+            if (matrix[i][j] > target) {
+                j--;
+            } else if (matrix[i][j] < target) {
+                i++;
+            } else {
+                return true;
+            }
         }
-        for (int right = matrix[i].length - 1; right > 0; right--) {
-            if (matrix[i][right] == target) return true;
-        }
-        return false;
     }
 }
