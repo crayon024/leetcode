@@ -1,4 +1,4 @@
-package com.crayon.SwordToOffersss.leetcodeplan2.SearchAlgoMedium;
+package com.crayon.SwordToOffersss.leetcodeplan2.SearchAlgo;
 
 /**
  * 剑指 Offer 04. 二维数组中的查找
@@ -7,6 +7,10 @@ package com.crayon.SwordToOffersss.leetcodeplan2.SearchAlgoMedium;
  * 链接：https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof
  *
  * 1. 以为做过了就没有仔细思考。只考虑到右上角元素的上下剔除。就写下了代码...
+ * 思路：
+ * 1. 暴力法
+ * 2. 从右上角元素开始。根据数据的递增顺序，依次排除列和行。
+ *    退出条件在于 行和列的位置。
  */
 public class FindNumberIn2DArray {
     public boolean findNumberIn2DArray(int[][] matrix, int target) {
