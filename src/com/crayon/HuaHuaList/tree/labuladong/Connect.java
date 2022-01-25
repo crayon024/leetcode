@@ -46,6 +46,7 @@ public class Connect {
                 // offer api 不支持入队 null 元素
                 if (poll.left != null) list.offer(poll.left);
                 if (poll.right != null) list.offer(poll.right);
+                // NullPointerException
                 if (i != 1) poll.next =  list.peek();
                 else poll.next = null;
             }
