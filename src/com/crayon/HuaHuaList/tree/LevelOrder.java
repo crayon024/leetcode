@@ -1,4 +1,4 @@
-package com.crayon.HuaHuaList;
+package com.crayon.HuaHuaList.tree;
 
 import com.crayon.TreeNode;
 
